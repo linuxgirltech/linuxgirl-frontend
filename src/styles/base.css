@@ -1,0 +1,123 @@
+/* ── IosevkaTerm (self-hosted, subset; SIL OFL 1.1) ───────────── */
+@font-face {
+  font-family: "IosevkaTerm";
+  src: url("/fonts/IosevkaTerm-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IosevkaTerm";
+  src: url("/fonts/IosevkaTerm-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IosevkaTerm";
+  src: url("/fonts/IosevkaTerm-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IosevkaTerm";
+  src: url("/fonts/IosevkaTerm-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Theme tokens ─────────────────────────────────────────────── */
+:root {
+  --bg: #0a0c0a;          /* almost black, faint green cast */
+  --bg-raised: #111511;
+  --fg: #c5d1c3;          /* body text: pale phosphor grey */
+  --fg-dim: #6f7d6d;
+  --green: #33ff66;       /* terminal green */
+  --green-dim: #1d8f3d;
+  --amber: #ffb000;
+  --rule: #1d2a1f;
+  --glow: 0 0 4px rgba(51, 255, 102, 0.55), 0 0 14px rgba(51, 255, 102, 0.25);
+
+  --font: "IosevkaTerm", "IosevkaTerm Nerd Font", ui-monospace, "SFMono-Regular",
+    Menlo, Consolas, monospace;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* CRT scanlines + vignette, purely decorative */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0) 2px,
+      rgba(0, 0, 0, 0.18) 3px
+    ),
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+::selection {
+  background: var(--green);
+  color: var(--bg);
+}
+
+a {
+  color: var(--green);
+  text-decoration: none;
+}
+a:hover,
+a:focus-visible {
+  background: var(--green);
+  color: var(--bg);
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--green);
+}
+
+code,
+pre {
+  font-family: var(--font);
+}
+
+/* Muted status / error lines */
+.status {
+  color: var(--fg-dim);
+}
+.status.error {
+  color: var(--amber);
+}

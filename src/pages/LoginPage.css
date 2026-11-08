@@ -1,0 +1,15 @@
+.tty-form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 44ch;
+}
+.tty-form label {
+  display: grid;
+  gap: 0.2rem;
+}
+.tty-form label span {
+  color: var(--fg-dim);
+}
+.tty-form .btn {
+  justify-self: start;
+}

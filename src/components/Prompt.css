@@ -1,0 +1,14 @@
+.prompt {
+  margin: 0 0 1rem;
+  color: var(--fg-dim);
+  overflow-wrap: anywhere;
+}
+.prompt .user {
+  color: var(--green);
+}
+.prompt .path {
+  color: var(--amber);
+}
+.prompt .cmd {
+  color: var(--fg);
+}

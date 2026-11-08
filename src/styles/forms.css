@@ -1,0 +1,59 @@
+/* Shared form controls and buttons */
+input,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+}
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+  background: var(--bg-raised);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 0.35rem 0.5rem;
+  caret-color: var(--green);
+  width: 100%;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--green-dim);
+  box-shadow: 0 0 0 1px var(--green-dim);
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7) sepia(1) hue-rotate(70deg) saturate(4);
+}
+::placeholder {
+  color: var(--fg-dim);
+  opacity: 0.7;
+}
+
+.btn {
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--fg);
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+}
+.btn:hover:not(:disabled),
+.btn:focus-visible {
+  border-color: var(--green);
+  color: var(--green);
+  outline: none;
+}
+.btn.primary {
+  border-color: var(--green-dim);
+  color: var(--green);
+}
+.btn.primary:hover:not(:disabled) {
+  background: var(--green);
+  color: var(--bg);
+}
+.btn.danger:hover:not(:disabled) {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}

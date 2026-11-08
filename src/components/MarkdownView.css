@@ -1,0 +1,64 @@
+/* Rendered markdown: posts and the editor preview */
+.markdown h2::before {
+  content: "## ";
+  color: var(--green-dim);
+}
+.markdown h3::before {
+  content: "### ";
+  color: var(--green-dim);
+}
+.markdown blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--green-dim);
+  color: var(--fg-dim);
+}
+.markdown code {
+  color: var(--amber);
+}
+.markdown pre {
+  background: var(--bg-raised);
+  border: 1px solid var(--rule);
+  padding: 1rem;
+  overflow-x: auto;
+}
+.markdown pre code {
+  color: var(--fg);
+}
+.markdown img {
+  max-width: 100%;
+}
+.markdown hr {
+  border: 0;
+  border-top: 1px dashed var(--rule);
+  margin: 2rem 0;
+}
+.markdown ul {
+  padding-left: 1.5rem;
+  list-style: "- ";
+}
+.markdown li.task-list-item {
+  list-style: none;
+  margin-left: -1.5rem;
+}
+.markdown input[type="checkbox"] {
+  accent-color: var(--green);
+  margin: 0 0.6ch 0 0;
+  vertical-align: -0.1em;
+}
+.markdown table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  display: block;
+  overflow-x: auto;
+}
+.markdown th,
+.markdown td {
+  border: 1px solid var(--rule);
+  padding: 0.25rem 0.75rem;
+  text-align: left;
+}
+.markdown th {
+  color: var(--green);
+  background: var(--bg-raised);
+}
