@@ -14,7 +14,7 @@ import "./styles/base.css";
 import "./styles/forms.css";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+  { rel: "icon", type: "image/ico", href: "/favicon.ico" },
   {
     rel: "preload",
     href: "/fonts/IosevkaTerm-Regular.woff2",
