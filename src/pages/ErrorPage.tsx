@@ -11,7 +11,7 @@ export default function ErrorPage() {
       <Prompt cmd={notFound ? `cd ${pathname}` : "./load"} />
       <p className="status error">
         {notFound
-          ? `bash: cd: ${pathname}: No such file or directory`
+          ? `zsh: cd: ${pathname}: No such file or directory`
           : "error: couldn't reach the backend. Is Strapi running?"}
       </p>
       <Link to="/">cd ~</Link>

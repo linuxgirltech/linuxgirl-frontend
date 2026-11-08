@@ -121,3 +121,16 @@ pre {
 .status.error {
   color: var(--amber);
 }
+
+/* Socials */
+.socials {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.socials .social-name {
+  display: inline-block;
+  min-width: 9ch;   /* lines the links up in a column */
+  opacity: 0.7;
+}
