@@ -26,16 +26,19 @@ export function parseFrontMatter(source: string): { meta: FrontMatter; body: str
   if (!match) return { meta: {}, body: source };
 
   const meta: FrontMatter = {};
-  for (const line of match[1].split(/\r?\n/)) {
+  for (const line of match[1] ?? "".split(/\r?\n/)) {
     const kv = /^\s*(title|slug|date|excerpt)\s*:\s*(.*?)\s*$/i.exec(line);
     if (!kv) continue;
-    const value = kv[2].replace(/^(['"])(.*)\1$/, "$2");
-    meta[kv[1].toLowerCase() as keyof FrontMatter] = value;
+    const [, key, raw] = kv;
+    if (!key || raw === undefined) continue;
+
+    const value = raw.replace(/^(['"])(.*)\1$/, "$2");
+    meta[key.toLowerCase() as keyof FrontMatter] = value;
   }
   return { meta, body: source.slice(match[0].length) };
 }
 
 /** Fallback title: first `# Heading` in the body. */
 export function firstHeading(body: string) {
-  return /^#\s+(.+)$/m.exec(body)?.[1].trim();
+  return /^#\s+(.+)$/m.exec(body)?.[1]?.trim();
 }

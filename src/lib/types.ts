@@ -1,3 +1,4 @@
+const MONTHS: readonly string[] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 /** Shared between server and browser code. No secrets, no Node APIs. */
 
 export type PostSummary = {
@@ -26,6 +27,8 @@ export type SaveStatus = "draft" | "published";
 /** The logged-in author as the browser sees it (the JWT stays on the server). */
 export type User = { username: string };
 
+
 export function formatDate(iso: string) {
-  return iso.slice(0, 10);
+  const [year, month, day] = iso.slice(0, 10).split("-");
+  return `${day}-${MONTHS[Number(month) - 1] ?? month}-${year}`;
 }

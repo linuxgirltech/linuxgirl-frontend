@@ -75,7 +75,9 @@ export async function getPost(slug: string, jwt?: string): Promise<Post> {
   if (jwt) params.set("status", "draft");
   const { data } = await request<{ data: Post[] }>("posts", { params, jwt });
   if (!data.length) throw new StrapiError(404, "Not found");
-  return data[0];
+  const post = data[0];
+  if (!post) throw new StrapiError(404, "Not Found");
+  return post;
 }
 
 export async function getPostForEdit(slug: string, jwt: string): Promise<EditablePost> {
